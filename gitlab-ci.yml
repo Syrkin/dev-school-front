@@ -1,0 +1,38 @@
+image: docker/compose:latest
+
+services:
+  - name: docker:dind
+    alias: localhost
+
+stages:
+  - build
+  - package
+#  - test
+
+cache:
+  paths:
+    - .gradle/wrapper
+    - .gradle/caches
+
+before_script:
+  - GRADLE_USER_HOME="$(pwd)/.gradle"
+  - export GRADLE_USER_HOME
+
+build:
+  image: gradle:alpine
+  stage: build
+#  tags: ["run03_docker"]
+  script:
+    - gradle bootJar
+  artifacts:
+    paths:
+      - build/libs/*.jar
+    expire_in: 1 week
+
+docker-package:
+  stage: package
+#  tags: ["run03_docker"]
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t registry.gitlab.com/syrkin1/devschool-front-app-server .
+    - docker push registry.gitlab.com/syrkin1/devschool-front-app-server
