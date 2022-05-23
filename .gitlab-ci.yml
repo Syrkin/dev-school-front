@@ -6,7 +6,7 @@ services:
 
 stages:
   - build
-  - package
+#  - package
 #  - test
 
 cache:
@@ -19,7 +19,7 @@ cache:
 #  - export GRADLE_USER_HOME
 
 build:
-  image: openjdk:11-jdk-slim
+  image: openjdk:8-jdk-slim
   stage: build
   script:
     - chmod +x ./gradlew
@@ -29,10 +29,10 @@ build:
       - build/libs/*.jar
     expire_in: 1 week
 
-docker-package:
-  stage: package
-#  tags: ["run03_docker"]
-  script:
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-    - docker build -t registry.gitlab.com/syrkin1/devschool-front-app-server .
-    - docker push registry.gitlab.com/syrkin1/devschool-front-app-server
+#docker-package:
+#  stage: package
+##  tags: ["run03_docker"]
+#  script:
+#    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+#    - docker build -t registry.gitlab.com/syrkin1/devschool-front-app-server .
+#    - docker push registry.gitlab.com/syrkin1/devschool-front-app-server
