@@ -22,7 +22,6 @@ build:
   image: gradle:jre11-slim
   stage: build
   script:
-    - chmod +x gradlew
     - ./gradlew jar
   artifacts:
     paths:
