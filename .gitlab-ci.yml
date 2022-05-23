@@ -21,9 +21,8 @@ before_script:
 build:
   image: gradle:alpine
   stage: build
-#  tags: ["run03_docker"]
   script:
-    - gradlew jar
+    - ./gradlew jar
   artifacts:
     paths:
       - build/libs/*.jar
