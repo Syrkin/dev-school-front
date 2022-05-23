@@ -19,7 +19,7 @@ before_script:
   - export GRADLE_USER_HOME
 
 build:
-  image: gradle:alpine
+  image: java:8-jdk
   stage: build
   script:
     - ./gradlew assemble
