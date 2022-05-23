@@ -14,14 +14,16 @@ cache:
     - .gradle/wrapper
     - .gradle/caches
 
-#before_script:
-#  - GRADLE_USER_HOME="$(pwd)/.gradle"
-#  - export GRADLE_USER_HOME
+before_script:
+  - sudo apt update
+  - echo java --version
+  - GRADLE_USER_HOME="$(pwd)/.gradle"
+  - export GRADLE_USER_HOME
 
 build:
   stage: build
   script:
-    - sudo apt install openjdk-8-jdk
+    - apt install openjdk-8-jdk
     - chmod +x ./gradlew
     - ./gradlew build
   artifacts:
