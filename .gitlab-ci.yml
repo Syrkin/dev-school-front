@@ -23,7 +23,7 @@ build:
   stage: build
 #  tags: ["run03_docker"]
   script:
-    - gradle bootJar
+    - gradlew jar
   artifacts:
     paths:
       - build/libs/*.jar
