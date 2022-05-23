@@ -23,7 +23,7 @@ build:
   stage: build
   script:
     - chmod +x ./gradlew
-    - ./gradlew jar
+    - ./gradlew build
   artifacts:
     paths:
       - build/libs/*.jar
