@@ -19,7 +19,7 @@ cache:
 #  - export GRADLE_USER_HOME
 
 build:
-  image: gradle:jre8-slim
+  image: openjdk:11-jdk-slim
   stage: build
   script:
     - chmod +x ./gradlew
