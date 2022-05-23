@@ -22,7 +22,7 @@ build:
   image: gradle:alpine
   stage: build
   script:
-    - ./gradlew jar
+    - ./gradlew assemble
   artifacts:
     paths:
       - build/libs/*.jar
