@@ -1,8 +1,8 @@
-image: docker/compose:latest
+image: ubuntu:latest
 
-services:
-  - name: docker:dind
-    alias: localhost
+#services:
+#  - name: docker:dind
+#    alias: localhost
 
 stages:
   - build
