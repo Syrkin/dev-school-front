@@ -19,7 +19,7 @@ cache:
 #  - export GRADLE_USER_HOME
 
 build:
-  image: ubuntu-latest
+  image: azul/zulu-openjdk-debian:8
   stage: build
   script:
     - chmod +x ./gradlew
