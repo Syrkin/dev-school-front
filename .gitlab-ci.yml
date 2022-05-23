@@ -21,6 +21,7 @@ cache:
 build:
   stage: build
   script:
+    - sudo apt install openjdk-8-jdk
     - chmod +x ./gradlew
     - ./gradlew build
   artifacts:
