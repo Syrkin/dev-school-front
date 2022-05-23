@@ -19,10 +19,11 @@ before_script:
   - export GRADLE_USER_HOME
 
 build:
-  image: java:8-jdk
+  image: gradle:alpine
   stage: build
   script:
-    - ./gradlew assemble
+    - chmod +x ./gradlew
+    - ./gradlew jar
   artifacts:
     paths:
       - build/libs/*.jar
