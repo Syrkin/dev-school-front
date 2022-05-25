@@ -1,4 +1,4 @@
-image: ubuntu:latest
+image: azul/zulu-openjdk-debian
 
 #services:
 #  - name: docker:dind
@@ -15,14 +15,13 @@ cache:
     - .gradle/caches
 
 before_script:
-  - apt install openjdk-8-jdk
+  - apt-get install -y yarn
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
 
 build:
   stage: build
   script:
-
     - chmod +x ./gradlew
     - ./gradlew build
   artifacts:
