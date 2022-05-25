@@ -17,7 +17,7 @@ cache:
 before_script:
   - apk add --update curl && rm -rf /var/cache/apk/*
   - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg
-  - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+  - echo "deb https://dl.yarnpkg.com/debian/ stable main"
   - apt-get update -qy
   - apt-get install -y nodejs
   - apt-get install -y yarn
