@@ -16,12 +16,7 @@ cache:
 
 before_script:
   - apk add --update curl && rm -rf /var/cache/apk/*
-  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg
-  - echo "deb https://dl.yarnpkg.com/debian/ stable main"
-  - apt-get update -qy
-  - apt-get install -y nodejs
-  - apt-get install -y yarn
-  - yarn install --check-files
+  - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ && \yarn install && \apk del yarn
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
 
