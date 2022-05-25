@@ -15,17 +15,17 @@ cache:
     - .gradle/caches
 
 before_script:
-  - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
-  - yarn install
-  - apk add openjdk8
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
 
 build:
   stage: build
   script:
+    - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
+    - yarn install
+    - apk add openjdk8
     - chmod +x ./gradlew
-    - ./gradlew build
+    - ./gradlew jar
   artifacts:
     paths:
       - build/libs/*.jar
