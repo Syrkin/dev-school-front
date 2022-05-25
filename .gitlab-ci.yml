@@ -15,10 +15,9 @@ cache:
     - .gradle/caches
 
 before_script:
-  - apk add --update curl && rm -rf /var/cache/apk/*
   - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
   - yarn install
-  - apk add openjdk8-jre
+  - apk add openjdk8
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
 
