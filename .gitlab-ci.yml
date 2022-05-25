@@ -16,7 +16,9 @@ cache:
 
 before_script:
   - apk add --update curl && rm -rf /var/cache/apk/*
-  - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ && \yarn install && \apk del yarn
+  - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
+  - yarn install
+  - apk del yarn
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
 
