@@ -1,4 +1,4 @@
-image: ubuntu:latest
+image: azul/zulu-openjdk-debian
 
 #services:
 #  - name: docker:dind
