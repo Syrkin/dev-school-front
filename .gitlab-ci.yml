@@ -15,8 +15,7 @@ cache:
     - .gradle/caches
 
 before_script:
-  - apt-get update -qq && apt-get install
-  - yarn install
+  - npm install -g yarn
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
 
