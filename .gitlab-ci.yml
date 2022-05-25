@@ -16,7 +16,12 @@ cache:
 
 before_script:
   - apk add --update curl && rm -rf /var/cache/apk/*
-  - apt-get update && sudo apt-get install yarn
+  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+  - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+  - apt-get update -qy
+  - apt-get install -y nodejs
+  - apt-get install -y yarn
+  - yarn install --check-files
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
 
