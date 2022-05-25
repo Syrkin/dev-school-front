@@ -1,4 +1,4 @@
-image: azul/zulu-openjdk-debian
+image: ubuntu:latest
 
 #services:
 #  - name: docker:dind
@@ -15,7 +15,9 @@ cache:
     - .gradle/caches
 
 before_script:
-  - apt-get install -y yarn
+  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  - sudo apt-get update && sudo apt-get install yarn
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
 
