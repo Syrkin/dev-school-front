@@ -9,7 +9,7 @@ clean {
 }
 
 task yarnInstall(type: Exec) {
-    commandLine yarnCommand, 'install', '--ignore-optional'
+    commandLine yarnCommand, 'install', '--offline'
 }
 
 task yarnBundle(type: Exec, dependsOn: yarnInstall) {
