@@ -3,6 +3,8 @@ image: docker/compose:latest
 services:
   - name: docker:dind
     alias: localhost
+variables:
+  VERSION: $CI_COMMIT_SHORT_SHA
 
 stages:
   - build
@@ -22,7 +24,9 @@ build:
     - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
     - yarn install
     - apk add openjdk8
-    - ./gradlew jar
+    - ./gradlew -Prelease.version=$VERSION final
+    - ls
+
   artifacts:
     paths:
       - build/libs/*.jar
