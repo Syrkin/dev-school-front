@@ -23,7 +23,6 @@ build:
     - yarn install
     - apk add openjdk8
     - ./gradlew jar
-    - echo "REGISTRY IMAGE $CI_REGISTRY_IMAGE"
   artifacts:
     paths:
       - build/libs/*.jar
