@@ -21,7 +21,7 @@ build:
   script:
     - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
     - yarn install
-    - apk add openjdk8-alpine
+    - apk add azul/zulu-openjdk-alpine:8
     - chmod +x ./gradlew
     - ./gradlew jar
 
