@@ -28,7 +28,7 @@ build:
     - ./gradlew jar
   artifacts:
     paths:
-      - /devschool-front-app-server/build/libs/*.jar
+      - /build/libs/*.jar
     expire_in: 1 week
 
 docker-package:
