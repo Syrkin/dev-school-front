@@ -14,6 +14,7 @@ cache:
     - .gradle/wrapper
     - .gradle/caches
 build:
+  image: openjdk:8u111-jdk-alpine
   before_script:
     - GRADLE_USER_HOME="$(pwd)/.gradle"
     - export GRADLE_USER_HOME
@@ -21,7 +22,7 @@ build:
   script:
     - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
     - yarn install
-    - apk add azul/zulu-openjdk-alpine:8
+#    - apk add openjdk8
     - chmod +x ./gradlew
     - ./gradlew jar
 
