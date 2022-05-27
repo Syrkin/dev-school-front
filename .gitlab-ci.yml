@@ -35,8 +35,8 @@ docker-package:
   script:
     - echo "Building docker image"
 #    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-#    - mkdir ~/.docker
-#    - echo $DOCKER_AUTH_CONFIG > ~/.docker/config.json
+    - mkdir ~/.docker
+    - echo $DOCKER_AUTH_CONFIG > ~/.docker/config.json
     - docker login
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA .
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
