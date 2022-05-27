@@ -22,7 +22,7 @@ build:
     - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
     - yarn install
     - apk add openjdk8
-    - ./gradlew -Prelease.useLastTag=true build final -x test
+    - ./gradlew jar
     - echo "REGISTRY IMAGE $CI_REGISTRY_IMAGE"
   artifacts:
     paths:
