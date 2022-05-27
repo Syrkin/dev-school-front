@@ -36,5 +36,5 @@ docker-package:
 #  tags: ["run03_docker"]
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-    - docker build -t registry.gitlab.com/syrkin1/devschool-front-app-server .
-    - docker push registry.gitlab.com/syrkin1/devschool-front-app-server
+    - docker build -t registry.gitlab.com/syrkin1/devschool-front-app .
+    - docker push registry.gitlab.com/syrkin1/devschool-front-app
