@@ -18,6 +18,7 @@ before_script:
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
 
+
 build:
   stage: build
   script:
@@ -28,6 +29,8 @@ build:
     - ./gradlew jar
   artifacts:
     paths:
+      - echo "commit short $CI_COMMIT_SHORT_SHA"
+      - echo "registry image $CI_REGISTRY_IMAGE"
       - build/libs/*.jar
     expire_in: 1 week
 
@@ -38,3 +41,5 @@ docker-package:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
     - docker build -t registry.gitlab.com/syrkin1/devschool-front-app .
     - docker push registry.gitlab.com/syrkin1/devschool-front-app
+  dependencies:
+    - build
