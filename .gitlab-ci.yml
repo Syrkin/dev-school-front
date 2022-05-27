@@ -17,6 +17,7 @@ cache:
 build:
   before_script:
     - chmod +x gradlew && export GRADLE_USER_HOME=`pwd`/.gradle
+    - echo "VERSION OF APP $APP_VERSION"
   stage: build
   script:
     - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
