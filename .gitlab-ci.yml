@@ -34,5 +34,5 @@ docker-package:
   script:
     - echo "Building docker image"
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - docker build -t registry.gitlab.com/syrkin1/$CI_COMMIT_SHORT_SHA/devschool-front-app .
-    - docker push registry.gitlab.com/syrkin1/$CI_COMMIT_SHORT_SHA/devschool-front-app
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
