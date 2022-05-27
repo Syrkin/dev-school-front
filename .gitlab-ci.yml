@@ -22,8 +22,7 @@ build:
     - apk add yarn --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
     - yarn install
     - apk add openjdk8
-    - ./gradlew jar
-
+    - ./gradlew jar --warning-mode none
   artifacts:
     paths:
       - build/libs/*.jar
