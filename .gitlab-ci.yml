@@ -23,7 +23,6 @@ build:
     - yarn install
     - apk add openjdk8
     - ./gradlew jar
-
   artifacts:
     paths:
       - build/libs/*.jar
@@ -34,8 +33,8 @@ docker-package:
 #  tags: ["run03_docker"]
   script:
     - echo "Building docker image"
-#    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-#    - mkdir ~/.docker
-#    - echo $DOCKER_AUTH_CONFIG > ~/.docker/config.json
+    - mkdir ~/.docker
+    - echo $DOCKER_AUTH_CONFIG > ~/.docker/config.json
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA .
+    - echo "Image ready, pushing image $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA into registry"
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
